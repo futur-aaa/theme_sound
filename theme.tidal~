@@ -1,0 +1,27 @@
+-- some playing for a possible theme melody based on the letter A
+-- harte echtzeit 24-04-09
+
+d1 $ fast 2
+  $ sometimes (rot 3 . degradeBy 0.1 . ghost . iter' 4)
+  $ note "a3 a4'maj a3" # s "superpiano"
+  -- # comb 0.6
+  # krush "1 3 5"
+  # legato 0.5
+  # room 0.6
+  # speed (range "-3" 5 $ sine)
+  # gain 0.7
+  -- # vowel "a a a"
+  
+d2 $ note "a4 a5(5,8) a4" # s "{sd bd ~, clubkick ~ oc}"
+  # gain 0.99
+  -- # vowel "a"
+
+d3 $ fast 1.25
+  $ s "alphabet:0 alphabet:0 alphabet:0"
+  # comb "0.5 0.6 0.9"
+  # speed "0.9 0.8 1.2"
+  -- # distort "0.0 0.3 0.2"
+  # hpf "300 800 1600"
+  # gain 1.2
+
+hush

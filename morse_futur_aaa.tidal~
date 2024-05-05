@@ -1,0 +1,7 @@
+-- some experiments of turning 'futur aaa' in morse code
+-- 2024-ß5-05
+-- harte echtzeit
+
+d1 $ n (scale "ritusen" "0 1 1 0 ~")
+  -- $ note "a3 a3 a3 a3 ~"
+  # s "superpiano superpiano superpiano superpiano ~" # legato "0.2 0.9 0.9 0.25 1"

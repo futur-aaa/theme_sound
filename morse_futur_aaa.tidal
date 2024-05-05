@@ -1,0 +1,46 @@
+-- some experiments of turning 'futur aaa' in morse code
+-- 2024-05-05
+-- harte echtzeit
+
+-- futur -> "..-. ..- - ..- .-."
+-- A -> ".-"
+-- Ä -> ".-.-"
+-- Å -> ".--.-"
+
+
+d1 $ n "~ a3 ~ as3 as3 ~ a3 ~"
+  # s "~ sd ~ sd sd ~ sd ~"
+  # legato "~ 0.5 ~ 2.5 2.5 ~ 0.5 ~"
+  # gain 0.9
+
+d1 $ compress (0, 1) $ n "as3 ~ a3 af3" # s "superpiano superpiano superpiano" # lpf 800
+
+
+d2 $ slow 8
+  $ n "1 1 111 1 ~~~ 1 1 2 ~~~ 2 ~~~ 1 1 2 ~~~ 1 2 1"
+  # s "superhoover"
+  # lpf 500
+
+
+
+
+do
+  resetCycles
+  --d3 $ fast 2 $ n "<[1 1 1 _ _ 1] . [~] . [1 1 1__] . [~] .[1__]. [~] . [1 1 1 _ _] .[~]. [1 1__ 1]>" # s "superhoover" #cut 1 #gain 0.8 
+  d4 $ fast 2 $ s "<hc hc ho hc .~. hc hc ho .~. ho .~. hc hc ho .~. hc ho hc>" #cut 1 # gain 0.8
+  -- d5 $ s "clubkick(5,8)" # gain 0.7
+
+
+d6 $ slow 1 $ sometimes (iter' 2)
+  $ n "a4 a4 ~ a4 a4 ~ a4 a4 ~" # s "[clubkick, sd]" # gain 0.8
+  # speed "1.5 0.8 ~ 1.5 0.8 ~ 1.5 0.8 ~"
+
+
+
+d7 $ slow 1
+  $ n "a4'maj!4"
+  # s "superzow!4"
+  -- # legato "0.8 0.8 1.5 0.8 ~"
+  # sustain "<1 1 2 1 .~. 1 1 2 ~. ~ 2 ~ ~. 1 1 2 ~>"
+  -- # sustain "1.8 1.8 1.4 1.8 ~"
+  # gain 0.6

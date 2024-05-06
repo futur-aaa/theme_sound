@@ -44,3 +44,21 @@ d7 $ slow 1
   # sustain "<1 1 2 1 .~. 1 1 2 ~. ~ 2 ~ ~. 1 1 2 ~>"
   -- # sustain "1.8 1.8 1.4 1.8 ~"
   # gain 0.6
+
+
+d2 $ s "super808" # rate rand # voice 1 # gain 0.8 # sustain 0.7
+
+d3 $ n "a3 a2" # s "superchip" # voice 2 # sustain "0.3 0.8"
+
+-- playing AAA in morse =) (together with futur hats (D4)
+d5 $ fast 1.5
+  $ n "a4 a4 ~ a5 a5 ~ a4 a4"
+  # s "bassdm"
+  -- # s "super808"
+  -- # s "sine"
+  # gain 0.99
+  # legato "0.3 1 ~ 0.3 1 ~ 0.3 1 ~"
+  # speed "0.6 1 ~ 0.6 1 ~ 0.6 1 ~"
+  # krush 1
+  # fshift "<-50 .. 100>"
+  -- # cut 1

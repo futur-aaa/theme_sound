@@ -24,11 +24,6 @@ d2 $ slow 8
 
 
 
-do
-  resetCycles
-  --d3 $ fast 2 $ n "<[1 1 1 _ _ 1] . [~] . [1 1 1__] . [~] .[1__]. [~] . [1 1 1 _ _] .[~]. [1 1__ 1]>" # s "superhoover" #cut 1 #gain 0.8 
-  d4 $ fast 2 $ s "<hc hc ho hc .~. hc hc ho .~. ho .~. hc hc ho .~. hc ho hc>" #cut 1 # gain 0.8
-  -- d5 $ s "clubkick(5,8)" # gain 0.7
 
 
 d6 $ slow 1 $ sometimes (iter' 2)
@@ -56,9 +51,47 @@ d5 $ fast 1.5
   # s "bassdm"
   # s "super808"
   -- # s "sine"
-  # gain 0.99
+  # gain 0.9
   # legato "0.3 1 ~ 0.3 1 ~ 0.3 1 ~"
   # speed "0.6 1 ~ 0.6 1 ~ 0.6 1 ~"
   # krush 1
   # fshift "<-50 .. 100>"
   -- # cut 1
+
+
+d7 $ stack [
+  n "<8 1>" # s "f3a_a" # gain 0.9,
+  n "1" # s "f3a_f" # gain 1]
+
+d6 $ sometimes (chop 8 . (# fshift "-20"))
+  $ n "1" # s "2f3a"
+
+do
+  resetCycles
+  d1 $ fast 2 $ n "<[1 1 1 _ _ 1] . [~] . [1 1 1__] . [~] .[1__]. [~] . [1 1 1 _ _] .[~]. [1 1__ 1]>" # s "superhoover" #cut 1 #gain 0.7 
+  d2 $ fast 2 $ s "<hc hc ho hc .~. hc hc ho .~. ho .~. hc hc ho .~. hc ho hc>" #cut 1 # gain 0.7
+  d3 $ s "clubkick(5,8)" # gain 0.7
+
+
+
+
+d4 $ sometimes ((# speed "-1") . (# room 0.2))
+  $ slice 8 "3 7 1 6 4 2 0 5"
+  $ n "<1 8>" # s "f3a_a"
+  # gain 0.9
+  # cut 1
+
+d8 $ jux rev
+  -- $ ghost
+  $ iter' "<4 2 8>"
+  $ slice 12 "11 5 8 10 3 7 6 2"
+  $ s "f3a_a:8"
+  # vowel "<i a?o>"
+  # gain 0.8
+
+d9 $ sometimes (chop 4 . echo 4 0.25 0.3)
+  -- $ ghost
+  -- $ sometimes (# speed "-1")
+  $ slow 2
+  $ s "2f3a:0"
+  # room 0.2
